@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 
@@ -40,16 +40,16 @@ let Details = () => {
         <div>
           <h4 className="me-3">{prevLoc.name}</h4>
           {pokemonData?.abilities?.map((v, i) => {
-            return <p>{v.ability.name}</p>;
+            return <p key={i}>{v.ability.name}</p>;
           })}
           <Link to="/">
             <Button variant="outline-dark">Back</Button>
           </Link>
         </div>
         <img
-        style={{maxWidth:"250px"}}
+          style={{ maxWidth: "250px" }}
           src={pokemonData?.sprites?.other?.dream_world?.front_default}
-          alt=""
+          alt={prevLoc?.name}
         />
       </div>
     </div>
